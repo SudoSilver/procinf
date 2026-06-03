@@ -52,3 +52,25 @@ impl SysInfo {
         return Ok(cpu_changed || ram_changed);
     }
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use std::thread::sleep;
+    use std::time::Duration;
+
+    #[test]
+    fn test_sys_info_lifecycle() {
+        let mut system = SysInfo::new().expect("Failed to initialize SysInfo engine");
+        
+        assert_eq!(system.cpu_per, 0); 
+        assert!(system.ram_total > 0, "RAM total should be greater than 0");
+
+        sleep(Duration::from_millis(200));
+
+        let update_result = system.update();
+        assert!(update_result.is_ok(), "Update loop threw an unexpected error");
+        
+        println!("Test Run Success! CPU: {}%, RAM Used: {}%", system.cpu_per, system.ram_used_per);
+    }
+}

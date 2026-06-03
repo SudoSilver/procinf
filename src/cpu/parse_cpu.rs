@@ -10,7 +10,7 @@ pub fn parse_cpu(cpu_info: String) -> Result<[u64;8], CpuError> {
 
     for c in chars {
         if i >= 8 {
-            return Err(CpuError::InvalidCpuLine);
+            break;
         }
 
         if c.is_whitespace() {
@@ -40,8 +40,8 @@ pub fn parse_cpu(cpu_info: String) -> Result<[u64;8], CpuError> {
         buffer += &c.to_string();
     }
 
-    if i >= 8 {
-        return Err(CpuError::InvalidCpuLine);
+    if i == 8 {
+        return Ok(info_arr);
     }
 
     // i remember to clean up the final buffer this time ^^
