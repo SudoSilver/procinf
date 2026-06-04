@@ -80,6 +80,6 @@ Errors are interconnected across modules via automatic trait conversions (From<C
 
 ### Note
 
-This engine was designed by me to run as a lean, low-overhead Linux telemetry state machine, taking advantage of type guarantees by mapping metrics cleanly into explicit 64-bit bounds. Feel free to extend abstractions or write higher-level output displays for it. The README was written by gemini if there is any issue please open an issue on github and be respectful about it.Technical and respectful feedback is always welcome.
+This engine was designed by me to run as a lean, low-overhead Linux telemetry state machine, taking advantage of type guarantees by mapping metrics cleanly into explicit 64-bit bounds. Feel free to extend abstractions or write higher-level output displays for it. The README was written by gemini if there is any issue please open an issue on github and be respectful about it.Technical and respectful feedback is always welcome. The crate has been moved to now be a testing space not production grade software as it relies on my non production crate scrtypes DO NOT USE THE CRATE IN PRODUCTION.
 
 - SudoSilver
